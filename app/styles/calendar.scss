@@ -1,0 +1,151 @@
+@import './icon-fonts';
+
+/*doc
+---
+title: Selectable Calendar
+name: selectable-calendar
+category: calendar
+---
+```react_example
+<SelectableCalendar appointments={[{date: '2016-05-17'}, {date: '2016-05-07'}, {date: '2016-06-10'}]} selected='2016-05-24' />
+```
+*/
+
+.rc-calendar {
+  font-size: $font-size-h4;
+  color: $cape-cod-gray;
+  font-weight: 200;
+
+  @media screen and (max-width: $screen-xs-max) {
+    font-size: $font-size-h6;
+  }
+}
+
+.rc-calendar-header {
+  font-size: $font-size-h2;
+  text-align: center;
+  @extend .pvl;
+  background-color: white;
+  border: 1px solid $gray-1;
+}
+
+.rc-calendar-prev-year-btn, .rc-calendar-next-year-btn {
+  display: none;
+}
+
+.calendar-navigation-button {
+  @extend .clickable;
+  color: $india-orange;
+  visibility: hidden; // hide the default button text
+  width: 14.2857%;
+  height: 0;
+  padding-top: 5px;
+
+  &:before {
+    // icon is displayed in the `before` pseudo element
+    visibility:visible;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+a.rc-calendar-month-select {
+  @extend .prl;
+  color: $cape-cod-gray;
+  pointer-events: none;
+  cursor: default;
+}
+
+a.rc-calendar-year-select {
+  color: $cape-cod-gray;
+  pointer-events: none;
+  cursor: default;
+}
+
+.rc-calendar-column-header {
+  text-align: center;
+}
+
+.rc-calendar-column-header {
+  font-style: normal;
+}
+
+.rc-calendar-last-month-cell, .rc-calendar-next-month-btn-day {
+  color: $gray-2;
+}
+
+.rc-calendar-cell {
+  text-align: center;
+  border: 1px solid $gray-1;
+  &:first-child {
+    border-left: none;
+  }
+  &:last-child {
+    border-right: none;
+  }
+  &.selected {
+    border: 3px solid $india-orange;
+  }
+}
+
+.rc-calendar-today {
+  background-color: $polar-blue;
+  color: $dark-cornflower-blue !important;
+}
+
+.has-appointment {
+  background-color: $light-india-orange;
+  @extend .clickable;
+}
+
+@mixin change-content {
+  visibility: hidden;
+  position: relative;
+  width: 100%;
+  display: block;
+  &:before {
+    position: absolute;
+    visibility: visible;
+    display: block;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+}
+
+th:nth-child(1) .rc-calendar-column-header-inner {
+  @include change-content;
+  &:before { content: 'Sun' }
+}
+
+th:nth-child(2) .rc-calendar-column-header-inner {
+  @include change-content;
+  &:before { content: 'Mon' }
+}
+
+th:nth-child(3) .rc-calendar-column-header-inner {
+  @include change-content;
+  &:before { content: 'Tue' }
+}
+
+th:nth-child(4) .rc-calendar-column-header-inner {
+  @include change-content;
+  &:before { content: 'Wed' }
+}
+
+th:nth-child(5) .rc-calendar-column-header-inner {
+  @include change-content;
+  &:before { content: 'Thu' }
+}
+
+th:nth-child(6) .rc-calendar-column-header-inner {
+  @include change-content;
+  &:before { content: 'Fri' }
+}
+
+th:nth-child(7) .rc-calendar-column-header-inner {
+  @include change-content;
+  &:before { content: 'Sat' }
+}

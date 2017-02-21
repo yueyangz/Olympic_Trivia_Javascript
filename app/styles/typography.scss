@@ -1,0 +1,256 @@
+/* COLORS */
+
+@import './colors';
+$text-color: $cape-cod-gray; /* overrides Bootstrap color */
+
+/* FONT FACES */
+
+@import url("//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,700italic,900italic");
+$font-stack: 'Lato', sans-serif;
+
+/* FONT SIZES */
+
+$font-size-banner: 42px;
+$font-size-h1: 2.625em;
+$font-size-h2: 2.25em;
+$font-size-h3: 1.75em;
+$font-size-h4: 1.3125em;
+$font-size-h5: 1em;
+$font-size-h6: 0.75em;
+
+
+/* ELEMENT STYLING */
+
+/*doc
+---
+title: Headings
+name: headings
+categories: typography
+---
+
+```html_example
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>
+```
+*/
+h1, .font-size-h1 {
+  font-size: $font-size-h1;
+}
+
+h2, .font-size-h2 {
+  font-size: $font-size-h2;
+}
+
+h3, .font-size-h3 {
+  font-size: $font-size-h3;
+}
+
+h4, .font-size-h4 {
+  font-size: $font-size-h4;
+}
+
+h5, .font-size-h5 {
+  font-size: $font-size-h5;
+}
+
+h6, .font-size-h6 {
+  font-size: $font-size-h6;
+}
+
+body {
+  color: $cape-cod-gray;
+  font-family: $font-stack;
+}
+
+body {
+  font-size: 14px;
+}
+
+@media screen and (min-width: $screen-md-min) {
+  body { font-size: 16px; }
+}
+
+* {
+  color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+}
+
+/*doc
+---
+title: Text Decorations
+name: text-decorations
+categories: typography
+---
+
+```html_example
+<p class="light">James</p>
+<p class="normal-weight">James</p>
+<p class="bold">James</p>
+<p class="bolder">Boulder</p>
+<p class="italics">Todd</p>
+<p class="center">This is centered</p>
+```
+*/
+
+.light {
+  font-weight: 300;
+}
+
+.normal-weight {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.bolder {
+  font-weight: bolder;
+}
+
+.italics {
+  font-style: italic;
+}
+
+.center {
+  text-align: center;
+}
+
+.muted {
+  color: $text-muted;
+}
+
+/*doc
+---
+title: Truncate Text
+name: text-truncation
+categories: typography
+---
+
+```html_example
+<p class="ellipsis">James is super awesome oh my god how could I ever live without him he is the best !!!!!!!!!!!! Add in other superlatives as you will. I cannot even believe that we are running out of space. I have so much more to say!!!</p>
+```
+*/
+
+.ellipsis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*doc
+---
+title: Icons
+name: icons
+category: typography
+---
+```html_example
+<div class="icon icon-search icon-3x"></div>
+<div class="icon icon-search icon-2x"></div>
+```
+
+Example                                                            | Css class name
+------------------------------------------------------------------ | ------------------------------------------------------------------
+<div class="icon icon-2x icon-add-circle"></div>                   | icon-add-circle
+<div class="icon icon-2x icon-bell-slash-o"></div>                 | icon-bell-slash-o
+<div class="icon icon-2x icon-calendar"></div>                     | icon-calendar
+<div class="icon icon-2x icon-call-old-telephone"></div>           | icon-call-old-telephone
+<div class="icon icon-2x icon-checkmark"></div>                    | icon-checkmark
+<div class="icon icon-2x icon-chevron-left"></div>                 | icon-chevron-left
+<div class="icon icon-2x icon-chevron-right"></div>                | icon-chevron-right
+<div class="icon icon-2x icon-clipboard"></div>                      | icon-clipboard
+<div class="icon icon-2x icon-clock-o"></div>                      | icon-clock-o
+<div class="icon icon-2x icon-download"></div>                     | icon-download
+<div class="icon icon-2x icon-edit-circle"></div>                  | icon-edit-circle
+<div class="icon icon-2x icon-facebook"></div>                     | icon-facebook
+<div class="icon icon-2x icon-help-circled"></div>                 | icon-help-circled
+<div class="icon icon-2x icon-instagrem"></div>                    | icon-instagrem
+<div class="icon icon-2x icon-letter-mail-1"></div>                | icon-letter-mail-1
+<div class="icon icon-2x icon-linkedinzz"></div>                   | icon-linkedinzz
+<div class="icon icon-2x icon-list-add"></div>                     | icon-list-add
+<div class="icon icon-2x icon-medium-chevron"></div>               | icon-medium-chevron
+<div class="icon icon-2x icon-notify-bell"></div>                  | icon-notify-bell
+<div class="icon icon-2x icon-question-mark"></div>                | icon-question-mark
+<div class="icon icon-2x icon-search"></div>                       | icon-search
+<div class="icon icon-2x icon-times"></div>                        | icon-times
+<div class="icon icon-2x icon-times-large"></div>                  | icon-times-large
+<div class="icon icon-2x icon-trash"></div>                        | icon-trash
+<div class="icon icon-2x icon-user"></div>                         | icon-user
+<div class="icon icon-2x icon-users"></div>                        | icon-users
+<div class="icon icon-2x icon-user-circle"></div>                  | icon-user-circle
+
+*/
+
+.icon-1-5x { font-size: 1.5em; }
+.icon-2x { font-size: 2em; }
+.icon-3x { font-size: 3em; }
+.icon-3-75x { font-size: 3.75em; }
+.icon-4x { font-size: 4em; }
+.icon-12x { font-size: 12em; }
+.icon.disabled {
+  cursor: auto;
+  color: $disabled-background-color;
+}
+
+/*doc
+---
+title: Icon Component
+name: icon-component
+category: typography
+---
+```react_example
+<Icon type="upload" color="link-india-orange" size={3}/>
+```
+*/
+
+/*doc
+---
+title: Icon With Number
+name: icon-with-number
+category: typography
+---
+```react_example
+<Icon type="bell-o" color="gray-3" size={2} numberTag={5}/>
+
+```
+*/
+
+
+.icon-with-number {
+  display: inline-block;
+  margin-left: -.9em;
+  vertical-align: top;
+  padding: .2em .3em;
+  line-height: 1em;
+  border-radius: .2em;
+  font-size: .4em;
+  background-color: $india-orange;
+  font-weight: bold;
+  color: white;
+}
+
+/*doc
+---
+title: Descriptive Text
+name: descriptive-text
+category: typography
+---
+```react_example
+<div className="descriptive-text">So descriptive. Such text. Wow.</div>
+```
+*/
+.descriptive-text {
+  font-style: italic;
+  font-weight: 600;
+  color: $gray-3;
+}

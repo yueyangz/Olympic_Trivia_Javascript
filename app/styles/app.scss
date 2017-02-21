@@ -1,0 +1,146 @@
+$space-large: 15px;
+
+
+.alert {
+    text-align: center;
+    font-size: 16px;
+}
+
+.page-title {
+	margin-top: $space-large;
+	color: black;
+	font-size: 36px;
+  font-family: "Times New Roman";
+  font-weight: bolder;
+}
+
+
+.btn-xlarge {
+    padding: 18px 28px;
+    font-size: 22px;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}
+
+.big-button-font {
+  font-size: 25px !important;
+}
+
+.button:hover {
+    background-color: #265a88 !important; /* Green */
+    color: white !important;
+}
+
+.about-p {
+  margin-top: $space-large;
+  font-size: 16px;
+  font-family: "Times New Roman";
+  text-align: justify;
+}
+
+.about-title {
+  margin-top: $space-large;
+  text-align: center;
+  font-size: 25px;
+  font-family: "Times New Roman";
+  word-spacing: 10px;
+  font-weight: bolder;
+}
+
+input[type=search] {
+	box-shadow: none;
+}
+
+input[type=radio],
+input.radio {
+  clear: none;
+  margin: 10px 10px 10px 10px;
+}
+
+.nav-item {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.left-45px {
+  right: 45px
+}
+
+.center {
+  text-align: center;
+}
+
+
+@import "../../node_modules/pui-css-buttons/buttons";
+@import "../../node_modules/pui-css-dividers/dividers";
+@import "../../node_modules/pui-css-grids/grids";
+@import "../../node_modules/pui-css-whitespace/whitespace";
+@import '../../node_modules/pui-css-variables-and-mixins/pui-variables';
+
+@import "colors";
+@import "variables";
+
+$globehealer-border-radius: 3px;
+
+@import "bootstrap";
+@import "basics";
+@import "cards";
+@import "calendar";
+@import "forms";
+//@import "header";
+@import "icon-fonts";
+@import "images";
+@import "layout";
+@import "map";
+@import "modal";
+@import "typography";
+@import "static_pages";
+@import "spinner";
+
+.choice {
+  font-size: $font-size-h3;
+  color: #265a88 !important;
+  font-weight: bolder;
+  text-align: center;
+}
+
+body {
+  background-color: $gray-1 !important;
+}
+
+.fb {
+  color: white;
+  font-size: 12px;
+}
+
+.question {
+  font-family: fantasy !important;
+  color: black;
+  font-size: 36px;
+  font-weight: bolder;
+}
+
+h1.top-header {
+  display: inline-block;
+  margin-top: $navbar-height + 10px!important;
+  margin-bottom: 10px;
+  padding: .3em 20px;
+  background-color: $sea-foam;
+  color: white;
+  font-size: 20px;
+
+  @media (min-width: 991px) {
+    margin-bottom: 20px!important;
+    font-size: 30px;
+  }
+}
+
+
+
+.preventScrolling{
+  overflow-y: hidden;
+  height: 100%;
+}
+

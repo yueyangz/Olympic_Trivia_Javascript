@@ -1,0 +1,88 @@
+/*doc
+---
+title: Static Content
+name: static-content
+category: static-pages
+---
+```react_example
+<div className="static-content bg-white">
+
+<SectionHeading lead={"This is what headings look like"} />
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et viverra elit. Nulla facilisi. Sed varius mi nisl,
+sed ultricies nunc tincidunt at. Suspendisse ultrices elementum metus, eget consectetur nulla vulputate sed. Aliquam
+interdum viverra faucibus. Nulla dignissim aliquam ultricies. Maecenas eu nibh massa. In tincidunt nisl nulla, sed
+volutpat elit venenatis vitae. Aenean quis posuere orci. Proin leo nibh, rhoncus at commodo in, commodo sit amet eros.
+Etiam et euismod massa, eu faucibus augue. Praesent in neque dapibus, finibus odio eget, hendrerit ligula. Aenean
+scelerisque quam non purus finibus, quis consectetur nunc sagittis. Morbi laoreet rutrum tellus eu efficitur. Ut a
+lectus ipsum.</p>
+
+<p>Sed tincidunt odio in ex luctus dapibus. Duis ac mauris ac lorem eleifend sollicitudin. Vestibulum porta, urna at
+dapibus aliquet, enim ex pharetra mi, malesuada dapibus dui mi nec augue. Nullam tincidunt, felis nec sollicitudin
+vestibulum, erat urna bibendum lectus, non venenatis ipsum elit a massa. Pellentesque habitant morbi tristique senectus
+et netus et malesuada fames ac turpis egestas. Donec iaculis convallis ornare. Pellentesque habitant morbi tristique
+senectus et netus et malesuada fames ac turpis egestas. Nulla et nunc id orci venenatis fringilla. Duis sollicitudin
+venenatis elit sit amet placerat.</p>
+
+<SectionHeading lead={"Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas"} />
+
+<p>Sed tincidunt odio in ex luctus dapibus. Duis ac mauris ac lorem eleifend sollicitudin. Vestibulum porta, urna at
+dapibus aliquet, enim ex pharetra mi, malesuada dapibus dui mi nec augue. Nullam tincidunt, felis nec sollicitudin
+vestibulum, erat urna bibendum lectus, non venenatis ipsum elit a massa. Pellentesque habitant morbi tristique senectus
+et netus et malesuada fames ac turpis egestas. Donec iaculis convallis ornare. Pellentesque habitant morbi tristique
+senectus et netus et malesuada fames ac turpis egestas. Nulla et nunc id orci venenatis fringilla. Duis sollicitudin
+venenatis elit sit amet placerat.</p>
+<div>
+  <ul>
+    <li>Hospital Clinical Programs</li>
+    <li>Hospital Infrastructure Architecture</li>
+    <li>Healthcare Analytics</li>
+    <li>Healthcare IT</li>
+    <li>Healthcare Governance Policy</li>
+    <li>Healthcare Regulation Physician Recruitment Placement</li>
+  </ul>
+</div>
+
+</div>
+```
+*/
+
+.static-content {
+  @extend .phxxxl;
+
+  h3 {
+    @extend .mtxxl;
+    @extend .ptxxl;
+    text-align: justify;
+  }
+
+  p, ul, ol {
+    &:p, &:ul{
+      @extend .mvxl;
+    }
+    color: $gray-4;
+    line-height: $font-size-h3;
+    text-align: justify;
+    @media all and (max-width: $screen-xs) {
+      -webkit-hyphens: auto;
+      -moz-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto;
+    }
+  }
+
+  .big{
+    @extend .section-heading;
+    text-align: justify;
+
+  }
+
+  section {
+    @extend .mvxxl;
+  }
+}
+
+.stretch-to-viewport-height {
+  min-height: 100vh;
+}
+

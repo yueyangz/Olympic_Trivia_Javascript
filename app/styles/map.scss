@@ -1,0 +1,23 @@
+.map-tooltip {
+  position: absolute;
+  top: -32px;
+  left: 15px;
+  z-index: 1;
+
+  background-color: $polar-blue;
+  box-shadow: 0 0 20px rgba(0.5, 0.5, 0.5, 0.3);
+  border-radius: 3px;
+  padding: 5px;
+
+  white-space: nowrap;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.map-marker {
+  @extend .clickable;
+}

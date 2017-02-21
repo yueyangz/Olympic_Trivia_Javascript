@@ -1,0 +1,364 @@
+
+
+/*doc
+---
+title: Navbar
+name: navbar
+category: header
+---
+```react_example
+     <Navbar>
+        <Navbar.Header>
+          <Navbar.Toggle />
+          <Navbar.Brand>
+            <Link to="http://www.google.com">Google!</Link>
+          </Navbar.Brand>
+        </Navbar.Header>
+        <Navbar.Collapse>
+          <Nav pullRight>
+            <NavItem eventKey={1} href="http://www.google.com">Home</NavItem>
+
+            <NavDropdown eventKey={5} title="Im a Dropdown!" id="basic-nav-dropdown">
+              <MenuItem eventKey={5.1}>Dashboard</MenuItem>
+              <MenuItem eventKey={5.2}>Settings</MenuItem>
+              <MenuItem eventKey={5.3}>Logout</MenuItem>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+```
+*/
+
+.navbar-fixed-top {
+  nav.navbar-default {
+    background-color: rgba(0,0,0,0.5);
+    transition: background-color .3s;
+  }
+  &.sticky {
+    nav.navbar-default {
+      background-color: #3d3d3d; /* Matches globehealer.com */
+    }
+  }
+  .navbar-collapse {
+    background-color: transparent;
+  }
+}
+/*
+Class naming is confusing here;
+logged-in right-hand dropdown is .navbar-collapse.user-nav ul.nav.navbar-nav .dropdown
+logged-out right-hand link navigation is ALSO wrapped in .navbar-collapse.user-nav ul.nav.navbard-nav
+(but the <li> have class .nav-dashboard)
+left-hand mobile hamburger is ALSO .navbar-collapse.user-nav ul.nav.navbard-nav,
+but is wrapped in #mobile-nav-dropdown
+
+*/
+nav.navbar {
+  font-size: 17px;
+  background-color: white;
+  height: $navbar-height;
+  border-radius: 0;
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  #nav_logo {
+    margin-top: 14px;
+    margin-left: 5px;
+    width: 162px;
+    height: 32px;
+    background-image: url(/static/images/logo@2x.png);
+    background-size: 162px 32px;
+  }
+}
+
+nav .dropdown {
+  @extend nav.navbar;
+  background-color: transparent;
+  width: auto;
+
+  #basic-nav-dropdown {
+    padding: 0!important;
+    width: 100%;
+    background-color: transparent;
+    display: block;
+    height: 100%;
+
+    .caret {
+      display: none;
+    }
+  }
+
+  .dropdown-menu {
+    max-height: none;
+    a {
+      background-color: $link-blue;
+      text-align: center;
+      color: white;
+    }
+  }
+
+  img {
+    border: 0;
+    transform: translateY(-2px);
+  }
+
+}
+
+#mobile-nav-dropdown {
+  display: none;
+}
+
+.navbar-collapse {
+  padding: 0;
+  background: white;
+  z-index: 10;
+  position: relative;
+}
+
+.user-nav {
+  a {
+    line-height: 30px!important;
+  }
+}
+
+.navbar-default {
+  .navbar-nav {
+    margin: 0;
+
+    > li > a {
+      padding: 0 0 0 $navbar-height;
+      margin: 0;
+      color: $link-blue;
+
+      &:hover {
+        color: $link-blue;
+      }
+    }
+  }
+
+  button {
+    &.navbar-toggle {
+      float: left;
+      margin-top: 14px;
+      margin-left: 25px;
+      margin-right: 0;
+      border-color: white;
+
+      &:hover, &:focus {
+        background-color: $polar-blue;
+      }
+
+      &:active {
+        background-color: $dark-polar-blue;
+      }
+
+      .icon-bar {
+        background-color: $cornflower-blue;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  .navbar-default {
+    .navbar-nav {
+      $vertical-padding: 18px;
+
+      background-color: $link-blue;
+
+      padding-top: $vertical-padding;
+      padding-bottom: $vertical-padding;
+
+      > li > a {
+        color: white;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+    .dropdown {
+      display: none;
+      height: 0;
+    }
+
+    #mobile-nav-dropdown {
+      display: block;
+      padding: 0 20px 0 30px;
+      a {
+        color: white;
+        line-height: 20px!important;
+      }
+    }
+  }
+}
+
+@media (min-width: 991px) {
+  .user-nav {
+    float: right;
+    a {
+      line-height: $navbar-height!important;
+      color: white!important;
+    }
+    .navbar-nav {
+      float: right;
+    }
+    .dropdown-menu {
+      float: right!important;
+      right: 0!important;
+      left: auto!important;
+    }
+  }
+}
+
+h1.top-header {
+  display: inline-block;
+  margin-top: $navbar-height + 10px!important;
+  margin-bottom: 10px;
+  padding: .3em 20px;
+  background-color: $sea-foam;
+  color: white;
+  font-size: 20px;
+
+  @media (min-width: 991px) {
+    margin-bottom: 20px!important;
+    font-size: 30px;
+  }
+}
+
+
+
+/* Notifications
+======================= */
+
+.nav-notifications {
+  right: 0;
+  float: right;
+  margin-right: 10px!important;
+
+  // These styles override bootstrap navbar media queries at smaller breakpoints
+  background: transparent!important;
+  padding: 0!important;
+
+  .dropdown-toggle {
+    padding: .6em .4em .4em!important;
+    line-height: inherit!important;
+    background: transparent!important;
+  }
+  span.caret {
+    display: none;
+  }
+  li.dropdown {
+    width: 52px!important;
+    display: block!important;
+    position: relative;
+  }
+
+  .dropdown-menu {
+    min-width: 300px;
+    max-height: 12em!important;
+    overflow-y: scroll;
+    border-left: 1px solid #999999;
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+    float: right!important;
+    right: 0!important;
+    left: auto!important;
+
+    .notification-container{
+      position: relative;
+
+      .buffer-li{
+        height: 2.5em;
+      }
+
+      .mark-all {
+        position: fixed;
+        z-index: 1000;
+        top: 60px;
+        width: 299px;
+      }
+    }
+
+  }
+  button {
+    padding-top: .5em!important;
+    padding-bottom: .5em!important;
+    background-color: $light-india-orange!important;
+    color: $gray-4!important;
+    &:hover {
+      background-color: darken($light-india-orange, 5%)!important;
+    }
+  }
+
+  li.notification-item {
+    line-height: 1.6em!important;
+    font-size: .8em!important;
+    padding: .3em .5em;
+    border-top: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+    background-color: white;
+    position: relative;
+
+    &:hover {
+      background-color: darken($gray-1, 5%);
+    }
+    &.no-notifications {
+      padding: 1em .5em;
+      text-align: center;
+      color: $gray-4;
+      background-color: $gray-1;
+    }
+    &.unread {
+      background-color: $polar-blue;
+      cursor: pointer;
+      &:hover {
+        background-color: darken($polar-blue, 5%);
+      }
+    }
+
+    &:first-child {
+      background-color: $light-india-orange!important;
+      border-top: none;
+      border-bottom: none;
+    }
+    .notification-body {
+      padding-left: 1.5em;
+    }
+    .unread-indicator {
+      position: absolute;
+      height: 100%;
+      font-size: 2.5em;
+      color: $india-orange;
+      top: 50%;
+      margin-top: -.5em;
+    }
+
+    a {
+      display: inline!important;
+      background-color: transparent!important;
+      color: $link-blue!important;
+      padding: 0!important;
+      width: auto!important;
+      line-height: inherit!important;
+      border-bottom: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .nav-notifications {
+    position: absolute;
+    right: 0em;
+    top: 0;
+
+    .dropdown-menu {
+      margin-top: -8px!important;
+      position: relative!important;
+    }
+  }
+
+}

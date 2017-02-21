@@ -1,0 +1,80 @@
+@import 'colors';
+
+/*doc
+---
+title: Carousel
+name: carousel
+category: images
+---
+```react_example
+  (function () {
+    var images = [
+      'http://vignette1.wikia.nocookie.net/pokemon/images/9/96/004Charmander_OS_anime.png/revision/latest?cb=20140603214902',
+      'http://img00.deviantart.net/546c/i/2012/035/b/2/squirtle_by_maii1234-d4oo1aq.jpg',
+      'http://images2.wikia.nocookie.net/__cb20111221113429/bulbasaurfanon/images/4/43/Bulbasaur.png',
+      'http://vignette1.wikia.nocookie.net/characters/images/f/fc/025Pikachu_OS_anime_5.png/revision/latest?cb=20141229045147'
+    ]
+    return <Row>
+      <Col md={3}>
+        <Carousel images={images}/>
+      </Col>
+    </Row>
+  })()
+
+```
+*/
+.big-image {
+  padding-bottom: 10px;
+}
+
+/*doc
+---
+title: SizedImage
+name: sized-image
+category: images
+---
+```react_example
+<Row><Col sm={2}>
+<SizedImage url="https://upload.wikimedia.org/wikipedia/en/3/39/Wakerlink.jpg"
+            aspectRatio={4/3}/>
+</Col></Row>
+```
+*/
+.sized-image {
+  background-size: cover;
+  background-position-x: center;
+}
+
+/*doc
+---
+title: Circle Image
+name: circle-image
+category: images
+---
+```react_example
+<Row><Col sm={2}>
+<SizedImage className="img-circle" url="https://img.buzzfeed.com/buzzfeed-static/static/2016-01/7/16/enhanced/webdr09/enhanced-24541-1452201163-2.png"
+            aspectRatio={1}/>
+</Col></Row>
+```
+*/
+
+/*doc
+---
+title: Image with Border
+name: gray-border
+category: images
+---
+```html_example
+<img class="gray-border" src="https://lh3.googleusercontent.com/-uxZ24rgw1zU/AAAAAAAAAAI/AAAAAAAAAAA/aNyUR1obqVg/photo.jpg"/>
+```
+*/
+
+.gray-border {
+  border: 4px solid $gray-2;
+}
+
+.profile-img {
+  max-height: 50px;
+  max-widgth: 50px;
+}

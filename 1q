@@ -1,0 +1,48 @@
+var express = require('express');
+var mysql = require('mysql');
+//create our app
+/*
+mysqlConnection.query('Select idAthlete,count(distinct idMedal) From Medal Inner join Athlete on Athlete.idAthlete = Medal.idAthlete Where Athlete.first_name=”Michael” AND Athlete.last_name=”Phelps” AND Medal.type=”GOLD”;', function(err, rows, fields) {
+  console.log('The solution is: ', rows[0].solution);
+});
+*/
+
+
+var app = express();
+
+const PORT = process.env.PORT || 8080;
+
+app.use(function (req, res, next) {
+	if (req.headers['x-forwarded-proto'] === 'https') {
+		res.redirect('http://' + req.hostname + req.url);
+	} else {
+		next();
+	}
+});
+
+app.get("/stuff",function(req,res){
+
+var mysqlConnection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : '',
+  database : 'quizdata'
+});
+
+mysqlConnection.connect();
+ mysqlConnection.query('SELECT * from Athlete LIMIT 2', function(err, rows, fields) {
+	 mysqlConnection.end();
+	 res.json(rows);
+	   if (!err){
+	     console.log('The solution is: ', rows);
+	   }
+	   else
+	     console.log('Error while performing Query.');
+	   });
+});
+
+app.use(express.static('public'));
+
+app.listen(PORT, function(){
+	console.log("Express server is up on port " + PORT);
+});

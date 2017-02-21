@@ -1,0 +1,959 @@
+@import './colors';
+@import './typography';
+@import './icon-fonts';
+
+@mixin input-colors {
+  background-color: $polar-blue;
+  color: $cape-cod-gray;
+}
+
+@mixin menu-items {
+  padding-top: $field-padding;
+  padding-bottom: $field-padding;
+  @extend .phxxl;
+  @include menu-items-no-padding;
+}
+@mixin menu-items-no-padding {
+  @include input-colors;
+  border-bottom: 1px solid white;
+  width: 100%;
+  cursor: pointer;
+}
+
+@mixin fade-between-background-colors {
+  transition: background-color .2s;
+}
+
+@mixin jumbo-input {
+  @include input-colors;
+  display: inline-block;
+  font-size: inherit;
+  box-shadow: none;
+  width: 30%;
+  border: solid 1px transparent;
+  border-radius: $globehealer-border-radius;
+  height: auto;
+
+  padding: $field-padding;
+
+  &:focus {
+    border: solid 1px transparent;
+  }
+
+  &[disabled] {
+    background-color: $disabled-background-color;
+    color: $disabled-text-color;
+  }
+}
+
+//Remove outlines and glow effects
+.form-control:focus {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+a:focus {
+  outline: none;
+}
+
+// Temporarily including non-<form> elements
+// Eventually all fields will be wrapped in a div
+// for consistent styling
+
+form, .new-case-form {
+  label {
+    display: block;
+    margin-bottom: .3rem;
+    color: $text-muted!important;
+    padding-left: $field-padding;
+  }
+}
+
+textarea, input, button, * { outline: none; }
+
+/*doc
+---
+title: Button
+name: button
+category: forms
+---
+```react_example
+<div>
+  <div className='pbxxl'>
+    <Button id="submit" text="Can't touch this" unlock={false}/>
+  </div>
+  <div className='pbxxl'>
+    <Button id="submit" text="Cancel" unlock={true} secondary={true}/>
+  </div>
+  <div className='pbxxl'>
+    <Button id="submit" text="Create account" unlock={true}/>
+  </div>
+</div>
+```
+*/
+
+.jumbo-button {
+  @include jumbo-input;
+  @extend .pvxl;
+  @extend .phxl;
+  text-align: center;
+
+  @include fade-between-background-colors;
+
+  &.disabled {
+    @extend .light;
+    color: $disabled-text-color;
+    background-color: $disabled-background-color;
+  }
+
+  &.enabled {
+    @extend .bold;
+    @extend .clickable;
+    color: white;
+    background-color: $cornflower-blue;
+
+    &:hover{
+      background-color: $dark-cornflower-blue;
+    }
+
+    &.secondary {
+      background-color: $field-bg-focus;
+      color: $cape-cod-gray;
+
+      &:hover {
+        background-color: $field-bg-hover;
+      }
+    }
+  }
+}
+/*doc
+---
+title: Button Tile
+name: button-tile
+category: forms
+---
+```react_example
+<ButtonTile icon="user" text="I am a button" unlock={true}/>
+```
+*/
+
+.button-tile{
+  p{
+    font-size: 1.25em;
+    padding-bottom: 2em;
+    margin-top: -1em;
+    @extend .bold
+  }
+  box-shadow: none;
+  border: solid 1px transparent;
+  border-radius: $globehealer-border-radius;
+  text-align: center;
+  width: 100%;
+
+  &.enabled{
+    @extend .clickable;
+    color: white;
+    background-color: $cornflower-blue;
+    &:hover{
+      background-color: $dark-cornflower-blue;
+    }
+  }
+  &.disabled{
+    @extend .light;
+    color: $disabled-text-color;
+    background-color: $disabled-background-color;
+  }
+}
+
+/*doc
+---
+title: Buttons that really are links
+name: button-link
+category: forms
+---
+```html_example
+<a class='jumbo-button'>I am a button</a>
+```
+*/
+
+/*doc
+---
+title: Fieldsets
+name: fieldset
+category: forms
+---
+```html_example
+<fieldset>
+  <legend>Some Title</legend>
+</fieldset>
+```
+*/
+
+fieldset { border: 2px solid $dark-cornflower-blue }
+
+legend {
+  padding: 0.2em 0.5em;
+  border: 1px solid $dark-cornflower-blue;
+  color: black;
+  font-size: 90%;
+  text-align: right;
+}
+
+
+/*doc
+---
+title: Radio Button
+name: radio-button
+category: forms
+---
+```react_example
+<RadioButtonGroup options={[{text:"Push", value:"1"}, {text:"Pull", value:"2"}]} />
+```
+*/
+
+.radio-button {
+  @include jumbo-input;
+  @include fade-between-background-colors;
+
+  &:hover {
+    background-color: $dark-polar-blue;
+  }
+
+  &.selected {
+    background-color: $cornflower-blue;
+    color: white;
+  }
+}
+
+/*doc
+---
+title: Birthdate Picker
+name: birthdate-picker
+category: forms
+---
+```react_example
+<BirthdatePicker />
+```
+*/
+
+/*doc
+---
+title: Alert Error
+name: alert-error
+category: forms
+---
+```react_example
+<Form>
+<Alert className="mbxl" type="error" message="I'm sorry Dave, I'm afraid I can't do that" />
+  <Input
+    name="name"
+    className="has-error"
+    type="text"
+    placeholder="Open the pod bay doors, HAL."
+   />
+</Form>
+```
+*/
+
+/*doc
+---
+title: Alert Success
+name: alert-success
+category: forms
+---
+```react_example
+<div>
+<Alert className="mbxl" type="success" message="Great moments are born from great opportunity. And that's what you have here tonight, boys." />
+</div>
+```
+*/
+
+p {
+  &.alert-error {
+    border: 1px solid $mistake-red;
+    background-color: rgba(230,63,84, .15);
+    border-radius: $globehealer-border-radius;
+    @extend .pal;
+    @extend .italics;
+    text-align: center;
+    color: $mistake-red;
+  }
+  &.alert-success {
+    border: 1px solid $dark-link-blue;
+    background-color: $polar-blue;
+    border-radius: $globehealer-border-radius;
+    @extend .paxl;
+    @extend .italics;
+    text-align: center;
+    color: $dark-link-blue;
+  }
+}
+
+/*doc
+---
+title: Checkbox
+name: checkbox
+category: forms
+---
+```react_example
+  <Checkbox name="hospital-checkbox"/>
+```
+*/
+.hospital-checkbox{
+  @extend .clickable;
+
+  $size: 50px;
+  $border-width: 3px;
+
+  width: $size;
+  height: $size;
+  border-radius: $border-width;
+  border: $border-width solid $india-orange;
+
+  background-color: white;
+  transition: background-color 0.05s linear;
+
+  &.checked {
+    background-color: $india-orange;
+  }
+
+  &:before {
+    @extend .icon-checkmark;
+    display: block;
+    margin-left: -$border-width;
+    margin-top: -$border-width;
+    width: $size;
+    font-family: globehealer-icon-font;
+    font-size: $size * 0.6;
+    text-align: center;
+    line-height: $size;
+    color: white;
+  }
+}
+
+/*doc
+---
+title: Input With Icon
+name: input-with-icon
+category: forms
+---
+```react_example
+<InputWithIcon placeholder='Search by hospital name, doctor, procedure or specialty' icon='search' />
+```
+*/
+
+.input-group-with-icon {
+  & input{
+    @include jumbo-input;
+    background-color: white;
+  }
+  .input-group-addon {
+    color: $india-orange;
+    background: white;
+    border-style: none;
+    border-radius: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  &.document-search {
+    border: 1px solid $gray-2;
+    border-radius: 3px;
+  }
+}
+
+/*doc
+---
+title: Input
+name: input
+category: forms
+---
+```react_example
+<Form>
+  <Input
+    type="email"
+    name="email"
+    placeholder="you@example.com"
+    label="Your email"
+    help="Enter an address where we can contact you"
+    errorMessage="Enter a valid email"
+    validations="isEmail"
+    required />
+</Form>
+```
+*/
+
+.form-group {
+  input, textarea {
+    @include jumbo-input
+  }
+  textarea {
+    vertical-align: bottom; // Prevents extra bottom spacing on textareas in some browsers
+  }
+}
+.form-input {
+  .inline-error {
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
+}
+
+/*doc
+---
+title: Input Number
+name: input-number
+category: forms
+---
+```react_example
+<Form>
+  <Input type="number"
+   name="name"
+   placeholder="No spinners for number input" />
+</Form>
+```
+*/
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/*doc
+---
+title: Input with HelpBlock
+name: input-with-help-block
+category: forms
+---
+```react_example
+<Form>
+  <Input
+    className="has-error"
+    type="text"
+    name="name"
+    placeholder="Open the pod bay doors, HAL." />
+  <HelpBlock default="All systems are go" error="I'm sorry, Dave, I'm afraid I can't do that"/>
+</Form>
+```
+*/
+
+input {
+  &.has-error {
+    &:focus{
+      border: 1px solid $mistake-red;
+    }
+    border: 1px solid $mistake-red;
+  }
+}
+p.help-block {
+  font-size: $font-size-h6;
+  @extend .italics;
+  @extend .mbl;
+  @extend .mll;
+  color: $cape-cod-gray;
+  &.has-error {
+    color: $mistake-red;
+  }
+}
+
+/*doc
+---
+title: Constrained Select
+name: constrained-select
+category: forms
+---
+```react_example
+<ConstrainedSelect show={true} placeholder="Search in tall grass for pokemon" collection={[{id: 1, name: "bulbasaur"}, {id: 2, name: "squirtle"},{id: 3, name: "charmander"}]} type="Pokemon" text={'charmander'}/>
+```
+*/
+
+.constrained-select {
+  .input-group-with-icon {
+    & input {
+      @include jumbo-input
+    }
+
+    .input-group-addon {
+      color: $cape-cod-gray;
+      background-color: $polar-blue;
+    }
+  }
+
+  .search-result {
+    @include menu-items;
+    background-color: $field-bg-focus;
+    color: $cape-cod-gray;
+    &:hover{
+      background-color: $field-bg-hover;
+    }
+  }
+}
+
+/*doc
+---
+title: List Dropdown
+name: list-dropdown
+category: forms
+---
+```react_example
+<ListDropdown placeholder='select a specialist'
+  choices={[{id: 1, name:'Brain Freeze'}, {id: 2, name:"Writer's Cramp"}]}
+  id="specialty"
+  show={true}
+  className="specialty-item"/>
+```
+*/
+
+.drop-down-chevron:before {
+  @include icon-style;
+  @extend .icon-medium-chevron;
+}
+
+.dropdown {
+  width: 100%;
+  .dropdown-toggle {
+    @include input-colors;
+    width: 100%;
+    border: none;
+    @extend .pvl;
+    @extend .phl;
+    text-align: left;
+    box-shadow: none;
+    font-weight: normal;
+  }
+
+
+  // Note that this styles both form dropdowns and the header dropdown
+  .dropdown-menu {
+    width: 100%;
+    padding: 0px;
+    box-shadow: none;
+    border: none;
+    height: auto;
+    max-height: 15em;
+    overflow-x: hidden;
+
+    li {
+      a {
+        @include menu-items-no-padding;
+        background-color: $field-bg-focus;
+        display: block;
+        color: $cape-cod-gray;
+        padding: $field-padding !important;
+        line-height: inherit !important;
+        &:hover {
+          background-color: $field-bg-hover;
+        }
+      }
+    }
+  }
+}
+
+// Making page specific style because we are altering a component that we don't maintain
+.case-container {
+  padding-top: 10px;
+  .dropdown {
+    padding-top: 10px;
+  }
+  @media all and (min-width: 991px) {
+    .dropdown {
+      padding-top: 5px!important;
+    }
+  }
+
+  #case-list {
+    @extend .dropdown-toggle;
+    @extend .pvxxl;
+    @extend .phxxl;
+    background-color: #ffffff !important;
+
+    .caret {
+      @extend .link-blue;
+      @extend .font-size-h3;
+    }
+
+    @media all and (max-width: $screen-sm) {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
+
+  .new-case-container {
+    @media all and (max-width: $screen-sm) {
+      padding: 10px 0 0 0 !important;
+    }
+  }
+}
+
+.open {
+  button.btn-default-alt.dropdown-toggle {
+    color: $gray-4;
+    &:hover, &:focus {
+      color: $gray-4;
+    }
+  }
+}
+
+/*doc
+---
+title: Autocomplete
+name: autocomplete
+category: forms
+---
+```react_example
+
+<Autocomplete dataSources={[
+{
+  name: 'hospitals',
+  display: 'name',
+  templates: {
+    header: '<h3>Hospitals</h3>'
+  },
+  source: new Bloodhound({
+    datumTokenizer: (datum) => {
+      return Bloodhound.tokenizers.whitespace(datum.name)
+    },
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    local: [
+      {id: 1, name: 'Hospital One'},
+      {id: 2, name: 'Hospital Two'}
+      ]
+  })
+},
+
+{
+  name: 'procedures',
+  display: 'name',
+  templates: {
+    header: '<h3>Procedures</h3>'
+  },
+  source: new Bloodhound({
+    datumTokenizer: (datum) => {
+      return Bloodhound.tokenizers.whitespace(datum.name)
+    },
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    local: [
+      {id: 1, name: 'Procedure One'},
+      {id: 2, name: 'Procedure Two'}
+      ]
+  })
+}
+]} placeholder="Search for Hospitals and Procedures" />
+```
+*/
+
+@import 'autocomplete';
+
+.form-control.autocomplete {
+  padding: 5px!important;
+}
+.tt-menu {
+  h3 {
+    padding-left: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: $gray-4;
+    margin-top: .3em!important;
+    padding-top: .3em!important;
+    padding-bottom: .2em;
+    border-top: 1px solid $gray-3;
+  }
+  .tt-dataset:first-child {
+    h3 {
+      margin-top: 0!important;
+      padding-top: 0!important;
+      border: none;
+    }
+  }
+
+  .tt-suggestion {
+    padding: 2px 10px!important;
+    font-size: 1em!important;
+    &:hover, &:focus, .tt-cursor {
+      background-color: $dark-cornflower-blue !important;
+    }
+  }
+}
+
+/*doc
+---
+title: Grouped Dropdown
+name: grouped-dropdown
+category: forms
+---
+```react_example
+<ReactSuperSelect dataSource={
+[
+  {
+    id: 1,
+    attributeName: "diddy!!",
+    label: "Diddy Kong",
+    group: "We Dem Boyz"
+  },{
+    id: 2,
+    attributeName: "chunky",
+    label: "Chunky Kong",
+    group: "We Dem Boyz"
+  },{
+    id: 3,
+    attributeName: "pikachu",
+    label: "Pikachu",
+    group: "Smoother Than A Fresh Jar of Skippy"
+  },{
+    id: 4,
+    attributeName: "mewtwo",
+    label: "Mewtwo",
+    group: "Smoother Than A Fresh Jar of Skippy"
+  }
+]
+} searchPlaceholder="Search" groupBy="group" optionLabelKey="label" placeholder="Find yo friends" searchable={true} onChange={() => {}} />
+```
+*/
+
+@import 'super_select';
+
+/*doc
+---
+title: Text Area
+name: text-area
+category: forms
+---
+```html_example
+<textarea id="location" rows="5" cols="40" placeholder="help text"></textarea>
+```
+*/
+
+textarea {
+  @include input-colors;
+  border: none;
+  display: block; // removes extra margin added by Chrome. see: http://stackoverflow.com/questions/3453959/how-do-i-fix-inconsistent-textarea-bottom-margin-in-firefox-and-chrome
+  resize: none;
+  width: 100%;
+  @extend .pvxl;
+  border-radius: $globehealer-border-radius;
+}
+
+/*doc
+---
+title: Currency Input
+name: currency-input
+category: forms
+---
+```react_example
+<div>
+<InternationalCurrencyInput placeholder="I DONT HAVE ANY CURERNCIES PASSED TO ME"/>
+<InternationalCurrencyInput currencies={["USD", "KYD"]} placeholder="I HAVE CURRENCIES PASSED TO ME"/>
+</div>
+```
+*/
+.i-dont-know {
+  &.enabled {
+    @include input-colors;
+    font-weight: 400;
+
+    &:hover,&.selected {
+      color: white;
+      font-weight: 600;
+      background-color: $dark-cornflower-blue;
+    }
+  }
+
+  &.disabled {
+    background-color: $polar-blue;
+    color: $gray-3;
+  }
+}
+.international-currency-input {
+  .form-group {
+    background-color: $polar-blue;
+    border-radius: $globehealer-border-radius;
+  }
+
+  .input-group > input{
+    @include jumbo-input;
+    padding-left: 10px !important;
+  }
+
+  $width: 120px;
+  $padding-left: 10px;
+  .dropdown-toggle{
+    &:disabled{
+      opacity: 1;
+    }
+
+    width: $width;
+    padding-left: $padding-left!important;
+
+    @media all and (max-width: $screen-md) {
+      width: $width !important;
+    }
+
+    @media all and (max-width: $screen-sm) {
+      width: $width !important;
+    }
+
+    padding-right: 12px;
+    span{
+      color: $cape-cod-gray;
+    }
+  }
+  .dropdown-menu {
+    width: $width;
+    min-width: 0;
+    li {
+      a {
+        width: $width;
+        padding-left: $padding-left!important;
+      }
+    }
+  }
+  .caret {
+    float: none !important;
+  }
+}
+
+
+
+/*doc
+---
+title: Slider
+name: Slider
+category: forms
+---
+```react_example
+<Slider minValue={0} maxValue={100} width="50%"/>
+```
+```react_example
+<CostSlider minValue={0} maxValue={100} width="50%"/>
+```
+*/
+
+.slider {
+  $height: 6px;
+  width: 100%;
+  padding-left: 3em;
+  padding-right: 3em;
+  position: relative;
+  margin-bottom: 10px;
+
+  .rc-slider {
+    height: $height;
+    margin-top: .5em;
+  }
+
+  .rc-slider-handle {
+    border-color: $gray-3!important;
+    $size: 20px;
+    width: $size;
+    height: $size;
+    margin-left: -($size/2);
+    margin-top: -($size/2) + 2px;
+  }
+  .rc-slider-track {
+    height: $height;
+    background-color: $dark-cornflower-blue;
+  }
+  .rc-slider-disabled {
+    .rc-slider-track {
+      background-color: $gray-3;
+    }
+  }
+  .rc-slider-step {
+    height: $height;
+  }
+  &.slider-disabled {
+    .min-label, .max-label {
+      color: $gray-4;
+    }
+  }
+
+}
+
+/*doc
+---
+title: LocationFilter
+name: Location Filter
+category: forms
+---
+```react_example
+<LocationFilter />
+```
+*/
+
+
+/*doc
+---
+title: LocationFilter Simple
+name: Location Filter Simple Style
+category: forms
+---
+```react_example
+<LocationFilter className="simple-multiselect" />
+```
+*/
+
+
+/*doc
+---
+title: Date & Time Picker
+name: Date & Time Picker
+category: forms
+---
+```react_example
+<div>
+  <DateTimePicker time={false} />
+  <DateTimePicker calendar={false} />
+</div>
+```
+*/
+
+//
+//
+//.rw-popup {
+//  position: absolute;
+//  box-shadow: (0 5px 6px rgba(0,0,0,0.2));
+//  border-top-radius: 0;
+//  border-bottom-radius: 3px;
+//  border:           white 1px solid;
+//  background:       white;
+//  padding:          2px;
+//  overflow:         auto;
+//
+//  // the offsets allows for drop shadow to not be clipped by the container
+//  margin-bottom:    10px;
+//  left:             10px;
+//  right:            10px;
+//
+//  .rw-dropup > & {
+//    margin-bottom: 0;
+//    margin-top:    10px;
+//    border-top-radius: 3px;
+//    border-bottom-radius: 0;
+//    box-shadow: (0 0 6px rgba(0,0,0,0.2));
+//  }
+//}
+//
+//.rw-popup-container {
+//  position: absolute;
+//  top: 100%;
+//  margin-top: 1px;
+//  z-index: 1005;
+//  // offset for drop shadow on rw-popup
+//  left:  -10px - 1px;
+//  right: -10px - 1px;
+//
+//  .rw-widget.rw-state-focus & {
+//    z-index: 1015;
+//  }
+//
+//  &.rw-dropup {
+//    top:    auto;
+//    bottom: 100%;
+//  }
+//
+//  &.rw-calendar-popup {
+//    right: auto;
+//    width: 18em; //15em; ?
+//  }
+//}

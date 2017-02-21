@@ -1,0 +1,8 @@
+$grid-gutter-width: 30px;
+$zindex-navbar-fixed: 10;
+
+.form-control {
+  height: initial !important;
+}
+$grid-float-breakpoint: $screen-md-min;
+$grid-float-breakpoint-max: $grid-float-breakpoint - 1;

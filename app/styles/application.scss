@@ -1,0 +1,39 @@
+@import "./bootstrap";
+@import "../../../node_modules/pui-css-buttons/buttons";
+@import "../../../node_modules/pui-css-dividers/dividers";
+@import "../../../node_modules/pui-css-grids/grids";
+@import "../../../node_modules/pui-css-whitespace/whitespace";
+@import '../../../node_modules/pui-css-variables-and-mixins/pui-variables';
+
+@import "colors";
+@import "variables";
+@import "vendor/**/*.scss";
+
+$globehealer-border-radius: 3px;
+
+@import "basics";
+@import "cards";
+@import "calendar";
+@import "forms";
+@import "header";
+@import "icon-fonts";
+@import "images";
+@import "layout";
+@import "map";
+@import "modal";
+@import "typography";
+@import "static_pages";
+@import "spinner";
+
+@import "pages/**/*.scss";
+
+
+.preventScrolling{
+  overflow-y: hidden;
+  height: 100%;
+}
+
+body {
+  background-color: $gray-1;
+}
+

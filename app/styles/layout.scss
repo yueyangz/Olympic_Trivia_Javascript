@@ -1,0 +1,477 @@
+
+
+/*doc
+---
+title: Access Treatment Step
+name: zz-at-the-end-access-treatment-step
+category: layout
+---
+```react_example
+<section>
+  <div className="access-treatment-step" >
+    Step stuff
+  </div>
+  <div className="access-treatment-step" >
+    Step stuff
+  </div>
+</section>
+```
+*/
+
+
+
+/*doc
+---
+title: Notification Text
+name: notification-text
+category: layout
+---
+```react_example
+<div>
+  <section className="container bg-white">
+    <SectionHeading className="notification-text" lead="I want to be the very best, like no one ever was. To catch them is my real test, to train them is my cause. I will travel across the land, searching far and wide. Teach pokemon to understand the power that's inside." />
+    <p className="bold pbxxxl text-center call-us">Pokemon gotta catch em all!</p>
+  </section>
+</div>
+```
+*/
+.notification-text {
+  @extend .pbxxl;
+  @extend .ptxxxl;
+  @extend .phxxxxl;
+}
+
+/*doc
+---
+title: Section Heading
+name: section-heading
+category: layout
+---
+```react_example
+<SectionHeading lead="git push --force-with-lease" />
+```
+*/
+
+.section-heading {
+  @extend h3;
+  @extend .light;
+  white-space: pre-line;
+  text-align: center;
+  line-height: $font-size-h4;
+
+
+  @media all and (max-width: $screen-sm) {
+      line-height: $font-size-h3;
+      font-size: $font-size-h4 !important;
+  }
+}
+
+
+/*doc
+---
+title: Bold Section Heading
+name: section-heading-bold
+categories: layout
+---
+
+```react_example
+<BoldSectionHeading lead="The cake is a lie, There is only pie, Through pie I gain weight, Through weight I gain width, Through width my belts are broken" />
+```
+
+*/
+.bold-section-heading {
+  text-align: center;
+  line-height: $font-size-h4;
+  font-size: $font-size-h3;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+/*doc
+---
+title: Lined Section Heading
+name: section-heading-lined
+category: layout
+---
+```react_example
+<LinedSectionHeading lead="Make it so" />
+```
+*/
+
+.lined-section-heading {
+  @extend .section-heading;
+  @extend .pbxl;
+  @extend .mtxxl;
+  @extend .mbxl;
+
+  border-bottom: 1px solid $gray-3;
+}
+
+/*doc
+---
+title: Banner
+name: banner
+category: layout
+---
+```react_example
+<Banner>Lions and Tigers</Banner>
+```
+*/
+
+
+.banner {
+  text-align: center;
+  color: white;
+  @extend .blue-header-gradient;
+  padding: $whitespace-xxl 0;
+  position: relative;
+
+  .title, .icon-edit { display: inline-block; }
+
+  .title {
+    font-size: $font-size-h1;
+    @extend .normal-weight;
+  }
+
+  a .icon-edit {
+    color: white;
+    margin-left: 25px;
+    vertical-align: 10%;
+    font-size: $font-size-h4;
+  }
+
+  .tabs {
+    //position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+  }
+
+  .tab {
+    padding: 5px;
+  }
+
+  @media all and (max-width: $screen-sm) {
+    padding: $whitespace-screen-sm-xxl 0;
+    .title {
+      font-size: $font-size-h5;
+    }
+  }
+}
+
+
+/*doc
+---
+title: BannerSubhead
+name: banner-subhead
+categories: layout
+---
+```react_example
+<div className="banner-subhead bg-white container">
+  <Row>
+    <Col sm={10} className="focus">
+      This is used at the top of the patient portal, to prevent the icon from expanding the container.
+    </Col>
+
+    <Col sm={2} className="actions">
+       <Icon className="phm" type="add" color="link-india-orange" size={4} />
+    </Col>
+  </Row>
+</div>
+
+```
+*/
+
+.banner-subhead {
+  .focus {
+    padding-top: 40px;
+  }
+  .actions {
+    padding-top: 20px;
+    .icon {
+      line-height: 1em;
+    }
+  }
+}
+  /*doc
+  ---
+  title: BottomLine
+  name: bottomline
+  categories: layout
+  ---
+
+  ```react_example
+  <BottomLine>Terms and Service: Not valid in all 52 states</BottomLine>
+  ```
+
+  */
+.bottom-line{
+  text-align: center;
+  font-size: $font-size-h6;
+  color: $cape-cod-gray;
+}
+
+/*doc
+---
+title: Bottom Sectional
+name: bottom-sectional
+category: layout
+---
+```react_example
+<section>
+ <div className="bg-white pvxxl" >
+    Normal body
+ </div>
+ <div className="bg-white pvxxl bottom-sectional" >
+    Howdy Partner!
+ </div>
+</section>
+```
+*/
+
+.bottom-sectional {
+  border-top: 2px solid $gray-1;
+  text-align: center;
+
+  span {
+    font-size: $font-size-h4;
+  }
+}
+
+
+/*doc
+---
+title: Call Us Text
+name: call-us-text
+category: layout
+---
+```react_example
+<div>
+  <section className="container bg-white">
+    <CallUs />
+  </section>
+</div>
+```
+*/
+.call-us {
+  font-size: $font-size-h4;
+  font-weight: bolder;
+  @extend .pbxxxl;
+}
+
+
+/*doc
+---
+title: Left on Desktop or Center on Phone
+name: center-left
+category: layout
+---
+```react_example
+<Row>
+  <Col sm={2} smOffset={1}>
+    <div className="left-on-desktop-centered-on-phone case-manager-image">
+    Todd, Yuliya, Ben, James, Luke, Nasim
+    </div>
+  </Col>
+</Row>
+```
+*/
+
+.left-on-desktop-centered-on-phone {
+  text-align: left;
+}
+
+
+/*doc
+---
+title: Right on Desktop or Center on Phone
+name: center-right
+category: layout
+---
+```react_example
+<Row>
+  <Col sm={2} smOffset={1}>
+    <div className="right-on-desktop-centered-on-phone case-manager-image">
+    Todd, Yuliya, Ben, James, Luke, Nasim
+    </div>
+  </Col>
+</Row>
+```
+*/
+
+.right-on-desktop-centered-on-phone {
+  text-align: right;
+}
+
+@media all and (max-width: $screen-sm-max)  {
+  .right-on-desktop-centered-on-phone {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .left-on-desktop-centered-on-phone {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/*doc
+---
+title: Table
+name: table
+category: layout
+---
+```react_example
+<div className="phxxxl bg-white">
+  <table>
+    <thead>
+      <tr>
+        <th>Patient Name</th>
+        <th>Treatment and Facility</th>
+        <th>Contact Information</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td className="bold">Patient One</td>
+        <td>
+          <div>Procedure One</div>
+          <div className="italics ptl font-size-h6 gray-4">Hospital One</div>
+        </td>
+        <td>
+          <div><span className="gray-3 icon icon-letter-mail-1 icon-2x"></span>test@test.com</div>
+          <div><span className="gray-3 icon icon-call-old-telephone icon-2x"></span>(555) 555-1234</div>
+        </td>
+      </tr>
+      <tr>
+        <td className="bold">Patient One</td>
+        <td>
+          <div>Procedure One</div>
+          <div className="italics ptl font-size-h6 gray-4">Hospital One</div>
+        </td>
+        <td>
+          <div><span className="gray-3 icon icon-letter-mail-1 icon-2x"></span>test@test.com</div>
+          <div><span className="gray-3 icon icon-cal-old-telephone icon-2x"></span>(555) 555-1234</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+*/
+
+table {
+  background-color: white;
+  border: none;
+  width: 100%;
+    @extend .phxxxl;
+
+  tr {
+    border:none;
+
+    &:last-child {
+      td {
+        border-bottom: none;
+      }
+    }
+  }
+  th {
+    color: $gray-3;
+    font-style: italic;
+    font-weight: normal;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid $gray-2;
+    @extend .paxl;
+  }
+  td {
+    vertical-align: top;
+    color: $cape-cod-gray;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid $gray-2;
+    @extend .paxl;
+  }
+  .icon {
+    vertical-align: -0.35em;
+    @extend .prl;
+  }
+
+}
+
+/*doc
+---
+title: Equal-height columns
+name: equal-height-column
+category: layout
+---
+```react_example
+<Row className="row-eq-height-md">
+  <Col md={6}>
+    <div style={{backgroundColor: '#f00', width: '100%'}}>
+      <p>Line 1</p><p>Line 2</p>
+    </div>
+  </Col>
+  <Col md={6}>
+    <div style={{backgroundColor: '#0f0', width: '100%'}}>
+      Line 1
+    </div>
+  </Col>
+</Row>
+```
+*/
+
+.row-eq-height-md {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+.row-eq-height-md > [class^="col-"],
+.row-eq-height-md > [class*=" col-"] {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  > div {
+    width: 100%
+  }
+}
+
+@media screen and (max-width: $screen-md) {
+  .row-eq-height-md {
+    display: block;
+  }
+
+  .row-eq-height-md > .col-md-6 {
+    display: block;
+  }
+}
+
+
+/*doc
+---
+title: No-padding utility class
+name: no-padding-class
+category: layout
+---
+```html_example
+<div class="row">
+<div class="col-xs-1" style="border: 1px solid black">Col 1</div>
+<div class="col-xs-10 no-padding" style="border: 1px solid red">This column has no padding. (AKA this column has no gutter.)</div>
+<div class="col-xs-1" style="border: 1px solid green">col 3</div>
+</div>
+
+```
+*/
+
+.no-padding {
+  padding: 0 !important;
+}

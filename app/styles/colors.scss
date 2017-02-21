@@ -1,0 +1,232 @@
+
+
+/*doc
+---
+title: Colors
+name: colors
+category: colors
+---
+
+```
+.bg-cornflower-blue
+.bg-dark-cornflower-blue
+.bg-polar-blue
+.bg-dark-polar-blue
+.bg-link-blue
+.bg-india-orange
+.bg-mistake-red
+```
+
+<div class="color-chip-row">
+    <div class="chip" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+      <div class="chip-color bg-cornflower-blue"></div>
+      <div class="chip-color-name">
+        <p class="mvn">Cornflower Blue</p>
+      </div>
+    </div>
+
+    <div class="chip">
+      <div class="chip-color bg-dark-cornflower-blue"></div>
+      <div class="chip-color-name">
+        <p class="mvn">Dark Cornflower Blue</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-polar-blue"></div>
+      <div class="chip-color-name">
+        <p class="mvn">Polar Blue</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-dark-polar-blue"></div>
+      <div class="chip-color-name">
+        <p class="mvn">Dark Polar Blue</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-link-blue"></div>
+      <div class="chip-color-name">
+        <p class="mvn">Link Blue</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-india-orange"></div>
+      <div class="chip-color-name">
+        <p class="mvn">India Orange</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-light-india-orange"></div>
+      <div class="chip-color-name">
+        <p class="mvn">Light India Orange</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-mistake-red"></div>
+      <div class="chip-color-name">
+        <p class="mvn">Mistake Red</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-cape-cod-gray"></div>
+      <div class="chip-color-name">
+        <p class="mvn">Cape Cod Gray</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-gray-1"></div>
+      <div class="chip-color-name">
+        <p class="mvn">Gray-1 #F3F3F3</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-gray-2"></div>
+      <div class="chip-color-name">
+        <p class="mvn">Gray-2 #E1E1E1</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-gray-3"></div>
+      <div class="chip-color-name">
+        <p class="mvn">Gray-3 #CACACA</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-gray-4"></div>
+      <div class="chip-color-name">
+        <p class="mvn">Gray-4 #6F6F6F</p>
+      </div>
+    </div>
+</div>
+*/
+
+
+$polar-blue: #E6F6F9;
+$cornflower-blue: #76CEE6;
+$dark-cornflower-blue: #63BED7;
+$dark-polar-blue: #CCEDF3;
+$link-blue: #2097B8;
+$dark-link-blue: #14819F;
+$india-orange: #EF6756;
+$light-india-orange: #F7C6C1;
+$mistake-red: #E63F54;
+
+$sea-foam: #50b290;
+
+$base-gray: #f3f3f3;
+$cape-cod-gray: #3A3F43;
+
+$text-muted: lighten($cape-cod-gray, 30%); /* overrides Bootstrap color */
+$gray-1: #F3F3F3;
+$gray-2: #E1E1E1;
+$gray-3: #CACACA;
+$gray-4: #6F6F6F;
+
+$field-bg-focus: $gray-2;
+$field-bg-hover: $gray-3;
+
+$disabled-background-color: $polar-blue;
+$disabled-text-color: $gray-3;
+
+
+.bg-dark-cornflower-blue {
+  background-color: $dark-cornflower-blue;
+}
+
+.bg-polar-blue {
+  background-color: $polar-blue;
+}
+
+.bg-dark-polar-blue {
+  background-color: $dark-polar-blue;
+}
+
+.bg-link-blue {
+  background-color: $link-blue;
+}
+
+.bg-india-orange {
+  background-color: $india-orange;
+}
+
+.bg-light-india-orange {
+  background-color: $light-india-orange;
+}
+
+.bg-mistake-red {
+  background-color: $mistake-red;
+}
+
+.bg-cape-cod-gray {
+  background-color: $cape-cod-gray;
+}
+
+.bg-sea-foam {
+  background-color: $sea-foam;
+}
+
+.bg-gray-1 {
+  background-color: $gray-1;
+}
+
+.bg-gray-2 {
+  background-color: $gray-2;
+}
+.bg-gray-3 {
+  background-color: $gray-3;
+}
+.bg-gray-4 {
+  background-color: $gray-4;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.blue-header-gradient{
+  background: #63bed7; /* Old browsers */
+  background: -moz-linear-gradient(90deg,  #63bed7 19%, #91cfe0 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(90deg,  #63bed7 19%,#91cfe0 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(90deg,  #63bed7 19%,#91cfe0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background-color: #63bed7; /* IE6-9 fallback to solid color */
+}
+
+.link-blue { color: $link-blue;}
+
+.link-india-orange{
+  color: $india-orange;
+  &:hover{
+    color: $india-orange;
+  }
+}
+
+.gray-3 { color: $gray-3;}
+.gray-4 {color: $gray-4;}
+.white {color: white;}
+
+.color-chip-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px; }
+
+.chip {
+  margin-top: 5px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 0 5px; }
+.chip .chip-color {
+  min-height: 53px;
+  border-radius: 5px 5px 0 0; }
+.chip .chip-color-name {
+  color: #243641;
+  padding-top: 5px;
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
+  background-color: white;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0px 2px 0 rgba(0, 0, 0, 0.1); }

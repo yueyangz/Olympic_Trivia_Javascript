@@ -1,0 +1,422 @@
+/*doc
+---
+title: Custom Modal
+name: custom-modal
+category: basics
+---
+```react_example
+<CustomModal linkText="click-me!!!!" isOpen={false} onClose={function() {}}>
+  <div>
+    <div>Hey I am Inside of a Modal!!!</div>
+    <img src="https://img.buzzfeed.com/buzzfeed-static/static/2014-01/enhanced/webdr03/20/12/anigif_enhanced-buzz-7204-1390238094-18.gif" />
+  </div>
+</CustomModal>
+```
+*/
+
+.modal-link-text{
+  padding-bottom: 10px;
+
+  a, a:hover, a:focus {
+    text-decoration: underline;
+    font-style: italic;
+    font-size: 16px;
+  }
+}
+
+.modal-container.container {
+  padding: 2em 0;
+  width: 60%;
+  @media screen and (max-width: $screen-md) {
+    width: 80%;
+  }
+  @media screen and (max-width: $screen-sm) {
+    width: 90%;
+  }
+
+  .modal-contents {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 20px black;
+    @media screen and (max-width: $screen-sm) {
+      font-size: $font-size-h6;
+      padding-left: $padding-small-horizontal;
+      padding-right: $padding-small-horizontal;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 2;
+    }
+  }
+}
+
+.hospital-detail-modal {
+  .modal-content {
+    background-color: $gray-1;
+  }
+  .card {
+    @extend .mbxl
+  }
+  @media screen and (max-width: $screen-md) {
+    .hospital-detail-modal-name {
+      font-size: $font-size-h4;
+    }
+  }
+  @media screen and (max-width: $screen-sm) {
+    .hospital-detail-modal-name {
+      font-size: $font-size-h3;
+    }
+  }
+}
+
+
+/*doc
+---
+title: Confirmation Modal Body
+name: confirmation-modal-body
+category: basics
+---
+```react_example
+<ConfirmationModalBody
+  title="What are we gonna do?"
+  text="We need a goat"
+  cancelText="Buy a goat"
+  confirmText="Sell a goat"
+  cancellationCallback={function(){}}
+  confirmationCallback={function(){}}
+  isOpen={false}  />
+```
+*/
+
+.confirmation-modal {
+  width: 60%;
+  margin-top: 20%;
+  max-width: 700px;
+}
+
+/*doc
+---
+title: Link
+name: link
+category: basics
+---
+```react_example
+<Link to="google.com">Stairway to Heaven</Link>
+```
+*/
+
+a {
+  color: $link-blue;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    text-decoration: none;
+    color: $dark-link-blue;
+  }
+}
+
+/*doc
+---
+title: Clickable
+name: clickable
+category: basics
+---
+```html_example
+<img src="/styleguide/pointer-example.png" class="clickable" />
+```
+*/
+
+.clickable {
+  cursor: pointer;
+}
+
+/*doc
+---
+title: Content Tabs
+name: content-tabs
+category: basics
+---
+```react_example
+(function() {
+  var tabs = [
+      {
+        title: 'My Documents',
+        pane: <div>my documents content</div>
+      },
+      {
+        title: 'Other Documents',
+        pane: <div>other documents content</div>
+      },
+      {
+        title: 'Other Other Documents',
+        pane: <div>other other documents content</div>
+      }
+    ];
+
+  return <ContentTabs tabs={tabs}/>;
+})()
+```
+*/
+
+.tab-container {
+  @extend .pvxxl;
+  float: left;
+  text-align: center;
+  background: white;
+  color: $link-blue;
+
+  .tab.selected {
+    @extend .bold;
+  }
+}
+
+.tab {
+  @extend .light;
+  @extend .clickable;
+  font-size: $font-size-h5;
+  padding-left: 5px;
+  padding-right: 5px;
+  &.selected {
+    @extend .normal-weight;
+    border-bottom: 3px solid $india-orange;
+  }
+}
+
+.tabs {
+  text-align: center;
+  .tab-wrapper {
+    margin: 0 auto;
+  }
+  .tab {
+    display: inline-block;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    @media screen and (min-width: $screen-md-min) {
+      margin: 0 10px;
+    }
+  }
+
+}
+
+/*doc
+---
+title: Collection Definitions Page
+name: collection-definitions
+category: basics
+---
+```react_example
+<CollectionDefinitions collection={[{id: 25, name: 'Pikachu', definition: 'Pikachu, the Mouse Pokemon. It can generate electric attacks from the electric pouches located in both of its cheeks.'}
+  ,{id: 1, name: 'Bulbasaur', definition: 'Bulbasaur, the Seed Pokemon. A young Bulbasaur uses the nutrients from its seed for the energy it needs to grow.'}]} title="Pokemon Definitions"/>
+```
+*/
+
+.collection-definitions{
+  @extend .phxxl;
+  .collection-title{
+    padding-top: 65px;
+    padding-bottom: 50px;
+    font-size: 40px;
+
+    @extend .light;
+  }
+  .name{
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 15px;
+  }
+  .definition{
+    font-size: 16px;
+    padding-bottom: 40px;
+  }
+}
+
+/*doc
+---
+title: Document List
+name: document-list
+category: basics
+---
+```react_example
+<DocumentList documents={[
+        {"filename":"filename.jpg","previewUrl":"asdflkj", "downloadUrl":"fooo", "createdAt":"1460393385", "id":123},
+        {"filename":"secondFileName.jpg","previewUrl":"secondurl", "downloadUrl":"barrrr", "createdAt":"123456789", "id":124}
+      ]}/>
+
+```
+*/
+.document-area {
+  .document-search {
+    border-top: 1px solid $gray-1;
+  }
+  .document-list {
+    max-height: 400px;
+    overflow-y: scroll;
+  }
+  .document-line {
+    border-top: 1px solid $gray-1;
+    border-bottom: 1px solid $gray-1;
+  }
+
+  .subtitle {
+    @extend .italics;
+    color: $gray-3;
+  }
+
+  .upload-date {
+    @media screen and (max-width: $screen-sm) {
+      padding-left: 0px !important
+    }
+  }
+
+  .document-header, .document-date, .document-link, .document-icons {
+    @media screen and (max-width: $screen-xs-max) {
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+  }
+}
+
+/*doc
+---
+title: Hospital Map
+name: hospital-map
+category: basics
+---
+```react_example
+<HospitalMap collection={[{lat:31.634, long:74.8723, id:1}, {lat: 10.0437, long: 76.2779, id:2}]}/>
+
+```
+*/
+.hospital-map {
+  width: 100%;
+  height: 370px;
+  @media screen and (max-width: $screen-xs-max) {
+    height: 170px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+
+
+/*doc
+---
+title: Popover
+name: popover
+category: basics
+---
+```react_example
+<div className="center">
+  <Popover isOpen={true} body='1-555-555-1212' place="above">
+     <span className="phl icon icon-4x link-india-orange icon-phone"/>
+  </Popover>
+</div>
+
+```
+*/
+
+.Popover-body {
+  @extend .pvxl, .phxl, .bold;
+
+  background-color: $link-blue;
+  color: white;
+  border-radius: $globehealer-border-radius;
+
+  a {
+    color: white;
+  }
+
+  p {
+    line-height: .5;
+  }
+}
+.Popover-tipShape {
+  fill: $link-blue;
+}
+
+
+/*
+This style need a home, an example, or maybe removed
+*/
+
+.doctor-thumbnail {
+  p {
+    @extend .ptl;
+
+    height: 4em;
+    overflow: visible;
+  }
+}
+
+/*
+This style need a home, an example, or maybe removed
+*/
+
+.center-vertical {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+
+.pv30 {
+  padding-top: $whitespace-xl * 1.5;
+  padding-bottom: $whitespace-xl * 1.5;
+}
+
+.acts-like-bootstrap-grid {
+  // N.B. This only works if the grid-gutter-width is an even number of pixels.
+  // Bootstrap sizes the margin-left and margin-right of rows so each is a whole number of pixels,
+  // e.g. with a gutter width of 15 px, one margin will be 7px and the other 8px.
+  margin-left: -$grid-gutter-width / 2;
+  margin-right: -$grid-gutter-width / 2;
+}
+
+/*doc
+---
+title: Coupled Containers
+name: coupled-containers
+category: basics
+---
+```react_example
+<Row>
+  <div className="coupled-containers">
+    <Link className="jumbo-button" to="/" id="one">One Button</Link>
+  </div>
+  <div className="coupled-containers-separator"></div>
+  <div className="coupled-containers">
+    <Link className="jumbo-button" to="/" id="two">Another Button</Link>
+  </div>
+</Row>
+
+```
+*/
+
+.coupled-containers {
+  width: 49.9%;
+  float: left;
+}
+
+.coupled-containers-separator {
+  padding: 0.1%;
+  float: left;
+}
+
+.float-left {
+  float: left;
+}
+
+.error-gear {
+  -webkit-animation:spin 120s linear infinite;
+  -moz-animation:spin 120s linear infinite;
+  animation:spin 120s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

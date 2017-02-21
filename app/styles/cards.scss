@@ -1,0 +1,208 @@
+/*doc
+---
+title: Card
+name: card
+category: cards
+---
+```react_example
+  <Card heading="Card Example">
+    <p>Authentic bicycle rights ramps portland forage. Brooklyn beard thundercats, twee umami gastropub 8-bit deep v craft beer williamsburg. Tacos semiotics celiac, authentic venmo keytar butcher flexitarian paleo distillery fingerstache. Leggings poutine meh retro slow-carb, intelligentsia viral.</p>
+    <p> Chambray fanny pack 8-bit ramps blog street art retro heirloom, small batch marfa chillwave. Single-origin coffee truffaut kinfolk raw denim, flexitarian wolf helvetica four dollar toast church-key green juice messenger bag 8-bit venmo. Sriracha salvia slow-carb, man bun blue bottle heirloom fanny pack kitsch godard.</p>
+    <p>More Body Text</p>
+  </Card>
+```
+*/
+.contact-card{
+  background-color: white;
+  h5 {
+    @extend .descriptive-text;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding-bottom: 2em;
+  }
+
+  @extend .pvxl;
+
+}
+
+.card {
+  @extend .contact-card;
+  @extend .paxxl;
+}
+
+
+/*doc
+---
+title: Hospital Card
+name: hospital
+category: cards
+---
+```react_example
+<Row>
+  <Col md={6} sm={4}>
+    <div className="hospital pbl">
+     <Checkbox name="hospital-checkbox" show={true}/>
+      <img src="http://vignette1.wikia.nocookie.net/general-hospital/images/a/ab/General_Hospital_as_seen_in_1991_closing_credits.jpg/revision/latest?cb=20130412045537" alt=""/>
+      <div className="caption">
+        <h4 className="link-blue">General Hospital</h4>
+        <div className="address">1200 N State St, Los Angeles, USA</div>
+        <div className="specialtiesTitle">TOP SPECIALTIES</div>
+        <div className="specialties">Operation, Prosthetics, Plastic Surgery, Drama, Family Values, Daytime Entertainment, Dashing Good Looks, Strong Female Leads</div>
+      </div>
+    </div>
+  </Col>
+</Row>
+```
+*/
+
+.hospital {
+  background-color: white;
+  position: relative;
+
+  $checkbox-offset: 7px;
+
+  @extend .mbxl;
+  img {
+    width: 100%;
+  }
+
+  .custom-modal a.title {
+    color: $link-blue;
+    text-decoration: none;
+    font-style: normal;
+    font-size: $font-size-h4;
+  }
+
+  .caption {
+    height: 300px;
+    overflow: auto;
+    @extend .ptxxl;
+    @extend .phxl;
+    @extend .pbl;
+  }
+
+  .address {
+    color: $gray-4;
+    font-style: italic;
+    @extend .pbxxl;
+  }
+
+  h4 {
+    @extend .pbl;
+  }
+
+  .specialtiesTitle {
+    font-size: $font-size-h6;
+    @extend .descriptive-text;
+    @extend .pbm;
+  }
+
+  .specialties {
+    @extend .pbl;
+  }
+
+
+  @media screen and (max-width: $screen-xs-max) {
+    font-size: .7em;
+  }
+}
+
+.hospital-image-container {
+  position: relative;
+}
+.hospital-caption {
+  background-color: rgba(0,0,0, 0.45);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: rgba(white, 1);
+  text-align: center;
+  padding: 5px 5px 3px;
+  h5 {
+    color: white !important;
+    &.subhead {
+      font-weight: normal!important;
+    }
+  }
+}
+
+.browse-hospital-results {
+  position: relative;
+  min-height: 340px;
+  .spinner {
+    top: 5%!important;
+    bottom: auto!important;
+  }
+}
+
+/*doc
+---
+title: Appointment Card
+name: appointment card
+category: cards
+---
+```react_example
+<Row>
+<AppointmentCard
+  date="Friday March 12, 2016"
+  time="03:00"
+  doctor_name="Namita Singh"
+  facility_name={"Max Multi Specialty Centre\n110 N Panchsheel Park\nNew Delhi 110 117"}
+  appointment_type="MRI Scan"
+  notes="Please arrive 15 minutes early. Do not eat or drink"
+/>
+</Row>
+```
+*/
+
+.appointment-card {
+  @extend .pvxl;
+  @extend .phxxl;
+
+  h1 {
+    font-style: italic;
+    color: $gray-3;
+    text-align: center;
+    font-size: $font-size-h5;
+    @extend .pbxxl;
+  }
+
+  h4 {
+    font-weight: 700;
+  }
+
+  h2 {
+    font-style: italic;
+    text-transform: uppercase;
+    color: $gray-2;
+    font-size: $font-size-h6;
+    @extend .pbl;
+  }
+
+  p {
+    white-space: pre-wrap;
+  }
+
+  .appointment-section {
+    @extend .pbxxl;
+  }
+}
+
+.appointment-card-stack {
+  .appointment-card-area {
+    padding-bottom: 2em;
+  }
+}
+
+.appointment-card-container {
+  background-color: white;
+  &.editable {
+    cursor: pointer;
+    &:hover {
+      h4 {
+        color: $link-blue!important;
+      }
+    }
+  }
+}
